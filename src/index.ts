@@ -1,2 +1,3 @@
-export * from './apis';
-export * from './schemas';
+export * from './api';
+export * from './core';
+export * from './config';

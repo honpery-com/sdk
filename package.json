@@ -1,23 +1,35 @@
 {
-  "name": "sdk_honpery_com",
-  "version": "1.0.0",
-  "description": "api sdk based on rxjs.",
-  "main": "index.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/honpery-com/sdk.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/honpery-com/sdk/issues"
-  },
-  "homepage": "https://github.com/honpery-com/sdk#readme",
-  "dependencies": {
-    "isomorphic-fetch": "^2.2.1",
-    "rxjs": "^5.2.0"
-  }
+    "name": "sdk_honpery_com",
+    "version": "0.0.1",
+    "description": "honpery.com api sdk based on rxjs.",
+    "main": "index.ts",
+    "scripts": {
+        "ncu": "ncu -au && yarn",
+        "test": "mocha -r ts-node/register test/**/*.ts",
+        "lint": "tslint --project . --fix"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/honpery-com/sdk.git"
+    },
+    "author": "honpery <honpery@gmail.com>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/honpery-com/sdk/issues"
+    },
+    "homepage": "https://github.com/honpery-com/sdk#readme",
+    "dependencies": {
+        "isomorphic-fetch": "^2.2.1",
+        "rxjs": "^5.2.0"
+    },
+    "devDependencies": {
+        "@types/chai": "^4.0.4",
+        "@types/mocha": "^2.2.44",
+        "chai": "^4.1.2",
+        "mocha": "^4.0.1",
+        "npm-check-updates": "^2.13.0",
+        "ts-node": "^3.3.0",
+        "tslint": "^5.8.0",
+        "typescript": "^2.6.1"
+    }
 }
