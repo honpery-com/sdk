@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+import 'whatwg-fetch';
 import { Query } from '../index';
 import { Api, Body, Headers, Method, Methods, Params } from './types';
 import { Url } from './url';
@@ -22,27 +24,45 @@ export class Http {
         this._url = new Url({ env: '' });
     }
 
-    get(options: FetchOptions) {
-        return this._buildMethod(Methods.GET, options);
+    get<T>(options: FetchOptions) {
+        return this._buildMethod<T>(Methods.GET, options);
     }
 
-    post(options: FetchOptions) {
-        return this._buildMethod(Methods.POST, options);
+    post<T>(options: FetchOptions) {
+        return this._buildMethod<T>(Methods.POST, options);
     }
 
-    patch(options: FetchOptions) {
-        return this._buildMethod(Methods.PATCH, options);
+    patch<T>(options: FetchOptions) {
+        return this._buildMethod<T>(Methods.PATCH, options);
     }
 
-    put(options: FetchOptions) {
-        return this._buildMethod(Methods.PUT, options);
+    put<T>(options: FetchOptions) {
+        return this._buildMethod<T>(Methods.PUT, options);
     }
 
-    delete(options: FetchOptions) {
-        return this._buildMethod(Methods.DELETE, options);
+    delete<T>(options: FetchOptions) {
+        return this._buildMethod<T>(Methods.DELETE, options);
     }
 
-    private _buildMethod(method: Method, options: FetchOptions) {
+    private async _buildMethod<T>(method: Method, options: FetchOptions) {
+        const { api, params, query, body, headers } = options;
+
+        const url = this._url.create(api, params, query);
+
+        const initData: RequestInit = { method, credentials: 'include' };
+
+        if (method === Methods.POST || method === Methods.PUT || method === Methods.PATCH) initData.body = body;
+
+        const req = new Request(url, initData);
+
+        const res = await fetch(req);
+
+        const json = await res.json<{ data: T, status: number, message: string }>();
+
+        return Observable.fromPromise(json);
+    }
+
+    private _log() {
         return '';
     }
 }

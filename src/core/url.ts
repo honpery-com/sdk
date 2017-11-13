@@ -9,7 +9,7 @@ export class Url {
 
     }
 
-    create(api: Api, params: Params, query: Query) {
+    create(api: Api, params?: Params, query?: Query) {
         return '';
     }
 }
