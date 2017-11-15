@@ -1,5 +1,5 @@
 {
-    "name": "sdk_honpery_com",
+    "name": "@honpery-com/sdk",
     "version": "0.0.1",
     "description": "honpery.com api sdk based on rxjs.",
     "main": "index.ts",
