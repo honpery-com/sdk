@@ -57,7 +57,7 @@ export class Http {
 
         const res = await fetch(req);
 
-        const json = await res.json<{ data: T, status: number, message: string }>();
+        const json = res.json<{ data: T, status: number, message: string }>();
 
         return Observable.fromPromise(json);
     }

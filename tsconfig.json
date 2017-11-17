@@ -2,18 +2,26 @@
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
-        "allowJs": true,
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "outDir": "dist",
+        "rootDir": "src",
+        "lib": [
+            "esnext",
+            "dom"
+        ],
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
         "removeComments": true,
         "strict": true,
         "noImplicitAny": true,
         "sourceMap": true,
-        "typeRoots": [
-            "./node_modules/@types"
-        ],
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "lib": [
-            "esnext"
-        ]
-    }
+        "skipLibCheck": true,
+        "declaration": true
+    },
+    "exclude": [
+        "node_modules",
+        "test"
+    ]
 }
