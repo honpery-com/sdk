@@ -6,7 +6,6 @@
             "node_modules/@types"
         ],
         "outDir": "dist",
-        "rootDir": "src",
         "lib": [
             "esnext",
             "dom"

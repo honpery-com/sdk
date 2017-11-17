@@ -1,6 +1,6 @@
 {
     "name": "@honpery-com/sdk",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "honpery.com api sdk based on rxjs.",
     "main": "./dist/index.js",
     "typings": "./dist/index.d.js",
@@ -8,7 +8,7 @@
         "ncu": "ncu -au && yarn",
         "test": "mocha -r ts-node/register test/**/*.ts",
         "lint": "tslint --fix -e dist --project .",
-        "build": "rm -r dist; tsc"
+        "build": "rm -r dist; tsc --rootDir src"
     },
     "repository": {
         "type": "git",
