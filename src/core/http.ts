@@ -44,7 +44,7 @@ export class Http {
         return this._buildMethod<T>(Methods.DELETE, options);
     }
 
-    private async _buildMethod<T>(method: Method, options: FetchOptions<T | null>) {
+    private _buildMethod<T>(method: Method, options: FetchOptions<T | null>) {
         const { api, params, query, body, headers } = options;
 
         const url = this._url.create(api, params, query);
@@ -55,9 +55,7 @@ export class Http {
 
         const req = new Request(url, initData);
 
-        const res = await fetch(req);
-
-        const json = res.json<{ data: T, status: number, message: string }>();
+        const json = fetch(req).then(res => res.json<{ data: T, status: number, message: string }>());
 
         return Observable.fromPromise(json);
     }

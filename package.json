@@ -1,6 +1,6 @@
 {
     "name": "@honpery-com/sdk",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "honpery.com api sdk based on rxjs.",
     "main": "./dist/index.js",
     "typings": "./dist/index.d.js",
